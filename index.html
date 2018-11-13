@@ -2,155 +2,174 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MAC Radio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MAC Radio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-amber.min.css" />
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-amber.min.css" />
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
-    <!-- Imports -->
-    <link rel="stylesheet" type="text/css" media="screen" href="res/css/main.css" />
+  <!-- Imports -->
+  <link rel="stylesheet" type="text/css" media="screen" href="res/css/main.css" />
 
 </head>
 
 <body>
-    <!-- Simple header with fixed tabs. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <!-- Title -->
-                <span class="mdl-layout-title">WLMAC Radio Announcements</span>
-                <div class="mdl-layout-spacer"></div>
-                <div id="rightNav" class="mdl-navigation"></div>
-            </div>
-            <!-- Tabs -->
-            <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-                <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Today's Announcements</a>
-                <a href="#fixed-tab-2" class="mdl-layout__tab">Submit Announcement</a>
-            </div>
-        </header>
-        <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">WLMAC Radio</span>
-            <div class="mdl-navigation">
-                </nav>
-                <a href="admin.html" class="mdl-navigation__link" href="">Moderation Panel</a>
-                <a href="#" onclick="copyUID();" class="mdl-navigation__link" href="">Copy UID</a>
-            </div>
-        </div>
-
-        <main class="mdl-layout__content">
-            <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
-                <div class="page-content">
-                    <div class="panel">
-                        <div class="row">
-                            <div class="col s6">
-                                <h3>Today's Announcements</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="verifiedAnnouncement">
-                        <div id="p2" class="loadingList mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
-                    </div>
-                </div>
-            </section>
-            <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-                <div class="page-content">
-                    <div class="panel" id="createAnnouncement">
-                        <div class="row">
-                            <div class="col s6">
-                                <h3>Submit Announcement</h3>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input type="text" id="announcementTitle" class="materialize-textarea"></textarea>
-                                <label for="announcementTitle">Announcement Title</label>
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom:0px;" class="row">
-                            <div class="input-field col s6">
-                                <input type="date" id="startDate">
-                                <label for="startDate">Announcement start date</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <input type="date" id="endDate">
-                                <label for="endDate">Announcement end date</label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea id="announcementBody" class="materialize-textarea"></textarea>
-                                <label for="announcementBody">Announcement</label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <button onclick="submitAnnouncement()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-                                    id="submitAnnouncement">Submit Annoucement</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
+  <!-- Simple header with fixed tabs. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">WLMAC Radio Announcements</span>
+        <div class="mdl-layout-spacer"></div>
+        <div id="rightNav" class="mdl-navigation"></div>
+      </div>
+      <!-- Tabs -->
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Today's Announcements</a>
+        <a href="#fixed-tab-2" class="mdl-layout__tab">Submit Announcement</a>
+        <a href="#fixed-tab-3" class="mdl-layout__tab">My Announcements</a>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">WLMAC Radio</span>
+      <div class="mdl-navigation">
+        </nav>
+        <a href="admin.html" class="mdl-navigation__link" href="">Moderation Panel</a>
+        <a href="#" onclick="copyUID();" class="mdl-navigation__link" href="">Copy UID</a>
+      </div>
     </div>
-    <!--
+
+    <main class="mdl-layout__content">
+      <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+        <div class="page-content">
+          <div class="panel">
+            <div class="row">
+              <div class="col s6">
+                <h3>Today's Announcements</h3>
+              </div>
+            </div>
+          </div>
+          <div id="verifiedAnnouncement">
+            <div id="p2" class="loadingList mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+          </div>
+        </div>
+      </section>
+      <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+        <div class="page-content">
+          <div class="panel" id="createAnnouncement">
+            <div class="row">
+              <div class="col s6">
+                <h3>Submit Announcement</h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <input type="text" id="announcementTitle" class="materialize-textarea"></textarea>
+                <label for="announcementTitle">Announcement Title</label>
+              </div>
+            </div>
+
+            <div style="margin-bottom:0px;" class="row">
+              <div class="input-field col s6">
+                <input type="date" id="startDate">
+                <label for="startDate">Announcement start date</label>
+              </div>
+              <div class="input-field col s6">
+                <input type="date" id="endDate">
+                <label for="endDate">Announcement end date</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12 input-field">
+                <select id="moderatorSelection" class="browser-default" size="1">
+                  <option value="" disabled selected>Select a moderator to verify this announcement.</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="announcementBody" class="materialize-textarea"></textarea>
+                <label for="announcementBody">Announcement</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <button onclick="submitAnnouncement()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" id="submitAnnouncement">Submit Annoucement</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+        <div id="userAnnouncements" class="page-content">
+          <div class="panel" id="createAnnouncement">
+            <div class="row">
+              <div class="col s6">
+                <h3>My Announcements</h3>
+              </div>
+            </div>
+          </div>
+          <div id="userAnnouncements">
+            <div id="p2" class="loadingList mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <!--
     <nav class="navbar">
         <a class="navbar-brand" href="#">MAC Radio Announcements</a>
         <ul id="rightNav" class="right hide-on-med-and-down">
         </ul>
     </nav>-->
 
-    <div id="generalMessage" class="mdl-js-snackbar mdl-snackbar">
-        <div class="mdl-snackbar__text"></div>
-        <button class="mdl-snackbar__action" type="button"></button>
-    </div>
+  <div id="generalMessage" class="mdl-js-snackbar mdl-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+  </div>
 
 </body>
 
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
 <script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyCIAgIMKc4nA4sgtnxbeU6rhVsM3seNxWQ",
-        authDomain: "mac-radio.firebaseapp.com",
-        databaseURL: "https://mac-radio.firebaseio.com",
-        projectId: "mac-radio",
-        storageBucket: "mac-radio.appspot.com",
-        messagingSenderId: "755181369598"
-    };
-    firebase.initializeApp(config);
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCIAgIMKc4nA4sgtnxbeU6rhVsM3seNxWQ",
+    authDomain: "mac-radio.firebaseapp.com",
+    databaseURL: "https://mac-radio.firebaseio.com",
+    projectId: "mac-radio",
+    storageBucket: "mac-radio.appspot.com",
+    messagingSenderId: "755181369598"
+  };
+  firebase.initializeApp(config);
 </script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 <script src="res/js/main.js"></script>
 <script>
-    $(document).ready(function () {
-        populateVerified();
-        
-    });
+  $(document).ready(function() {
+    populateVerified();
+    populateModeratorSelector();
+  });
 </script>
 
 </html>
